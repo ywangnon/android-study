@@ -78,26 +78,3 @@
 * 앱 서명과 APK 생성
 * Gradle 기초
 * Play Store 배포 절차
-
----
-
-## 📁 Git 저장소 구조 예시
-
-```bash
-android-study/
-├── 01_android_intro/
-│   └── what_is_android.md
-├── 02_kotlin_basics/
-│   └── kotlin_functions.md
-├── 03_android_components/
-│   └── activity_lifecycle.md
-├── 04_jetpack_compose/
-│   └── composable_functions.md
-├── 05_sample_projects/
-│   └── todo_app/
-│       ├── README.md
-│       └── screenshots/
-├── 06_mvvm_architecture/
-│   └── viewmodel_state.md
-└── README.md
-```
