@@ -1,4 +1,4 @@
-# 3. Activity 생명주기 이해하기
+# 3-2. Activity 생명주기 이해하기
 
 ## 🎯 Activity란?
 
