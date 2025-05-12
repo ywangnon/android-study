@@ -1,4 +1,4 @@
-# 3-2. Activity와 Fragment의 차이점
+# 3-3. Activity와 Fragment의 차이점
 
 ## 🤔 왜 Fragment가 등장했을까?
 
