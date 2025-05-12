@@ -14,6 +14,7 @@ Jetpack Compose, Kotlin, MVVM, API 연동 등 실무에서 자주 쓰이는 기�
 - [Kotlin 기본 문법 정리](02_kotlin_basics/kotlin_basics.md)
 
 ### 3. Android 기본 구성요소
+- [Android 기본 구성요소 정리](03_android_components/android_components_overview.md)
 - [Activity 생명주기](03_android_components/activity_lifecycle.md)
 - [Fragment와 차이점](03_android_components/fragment_vs_activity.md)
 
