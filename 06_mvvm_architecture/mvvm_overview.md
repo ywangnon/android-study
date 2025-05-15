@@ -1,6 +1,3 @@
-### 📄 `06_mvvm_architecture/mvvm_overview.md`
-
-```markdown
 # 6. 앱 구조화와 MVVM
 
 ## 🧩 왜 앱 구조화가 필요할까?
