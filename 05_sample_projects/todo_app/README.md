@@ -1,46 +1,34 @@
 # ✅ Jetpack Compose To-Do 앱 실습
 
-이 실습은 Android 초보자를 위한 실습입니다.  
-Jetpack Compose와 ViewModel을 사용해 상태 기반 UI를 직접 구현해보며 Android 앱 구조를 익힙니다.
+이 실습은 Android 개발을 처음 접하는 분을 위해 만들어졌습니다.  
+Jetpack Compose를 사용하여 가장 기본적인 기능들(입력, 목록, 체크박스, 상태 저장 등)을 직접 구현하며 학습합니다.
+제가 한 세팅 기준으로 작성했습니다.
 
 ---
 
-## 📌 주요 기능
+## 📌 실습 목표
 
-- 새로운 할 일 추가
-- 완료 여부 체크
-- 완료된 항목 삭제
-- ViewModel로 상태 관리
-
----
-
-## 🗂️ 파일 구성
-
-```text
-todo_app/
-├── MainActivity.kt
-├── model/
-│   └── Todo.kt
-├── viewmodel/
-│   └── TodoViewModel.kt
-└── ui/
-    └── TodoApp.kt
-````
+- Jetpack Compose로 화면을 구성하는 방법 이해
+- 사용자 입력을 처리하는 방법 익히기
+- 상태 기반 UI를 ViewModel로 관리하는 방식 배우기
 
 ---
 
-## 🛠️ 1. 새 프로젝트 생성
+## 🛠️ 1단계: 새 프로젝트 만들기
 
 1. Android Studio 실행
-2. **New Project > Empty Activity** 선택
-3. 이름은 예: `TodoApp`, 최소 SDK는 **API 33 이상** 권장
-4. Finish
+2. **File > New Project > Empty Activity** 선택
+3. 프로젝트 이름: `Todo`
+4. 최소 SDK: API 33 이상 선택
+5. Finish 클릭
+
+> 이 실습은 `Jetpack Compose`가 가능한 최신 템플릿으로 만들어야 합니다.
 
 ---
 
-## ⚙️ 2. build.gradle 설정
+## ⚙️ 2단계: build.gradle 설정
 
-`build.gradle(:app)` 파일을 열고 아래 항목을 확인하거나 수정합니다:
+### `build.gradle(:app)` 파일에서 아래 항목을 확인하거나 추가하세요:
 
 ```gradle
 android {
@@ -53,25 +41,39 @@ android {
 }
 
 dependencies {
+    // Jetpack Compose 필수
     implementation("androidx.activity:activity-compose:1.8.2")
     implementation("androidx.compose.ui:ui:1.6.1")
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.compose.foundation:foundation:1.6.1")
 
-    // ViewModel with Compose
+    // 상태 관리용 ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 }
-```
+````
 
-상단 메뉴의 `File > Sync Project with Gradle Files` 실행
+파일 저장 후 화면 상단의 **Sync_Project_with_Gradle_Files** 버튼 클릭!(코끼리 모양)
 
 ---
 
-## 🧱 3. 코드 작성
+## 🧱 3단계: 파일 구조 만들기
 
-> 💡 기본 패키지는 `com.example.todoapp` 으로 가정합니다.
+아래와 같이 3개의 폴더와 파일을 생성하세요:
 
-### 📄 `MainActivity.kt`
+```
+com.example.todoapp/
+├── MainActivity.kt
+├── model/
+│   └── Todo.kt
+├── viewmodel/
+│   └── TodoViewModel.kt
+└── ui/
+    └── TodoApp.kt
+```
+
+---
+
+## 📄 MainActivity.kt – 앱 진입점
 
 ```kotlin
 package com.example.todo
@@ -95,9 +97,15 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
+### 🔍 설명:
+
+* `setContent {}`: Compose에서 UI를 설정할 때 사용
+* `viewModel()`: 화면에 상태를 제공하는 TodoViewModel 생성
+* `TodoApp()`: 실질적인 화면 UI는 이 함수에서 구성
+
 ---
 
-### 📄 `model/Todo.kt`
+## 📄 model/Todo.kt – 데이터 모델 정의
 
 ```kotlin
 package com.example.todo.model
@@ -109,16 +117,23 @@ data class Todo(
 )
 ```
 
+### 🔍 설명:
+
+* `Todo`: 하나의 할 일 정보를 저장하는 데이터 클래스
+* `id`: 각 할 일의 고유 번호
+* `title`: 할 일 내용
+* `isDone`: 완료 여부
+
 ---
 
-### 📄 `viewmodel/TodoViewModel.kt`
+## 📄 viewmodel/TodoViewModel.kt – 상태 관리 담당
 
 ```kotlin
-package com.example.todoapp.viewmodel
+package com.example.todo.viewmodel
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
-import com.example.todoapp.model.Todo
+import com.example.todo.model.Todo
 
 class TodoViewModel : ViewModel() {
     private var nextId = 0
@@ -141,12 +156,19 @@ class TodoViewModel : ViewModel() {
 }
 ```
 
+### 🔍 설명:
+
+* `mutableStateListOf`: Compose가 상태 변화를 감지하고 UI를 자동 업데이트
+* `addTodo()`: 새로운 할 일을 리스트에 추가
+* `toggleDone()`: 완료 여부를 반전시킴
+* `removeDone()`: 체크된 항목들을 모두 삭제
+
 ---
 
-### 📄 `ui/TodoApp.kt`
+## 📄 ui/TodoApp.kt – 화면 UI 구성
 
 ```kotlin
-package com.example.todoapp.ui
+package com.example.todo.ui
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -170,6 +192,7 @@ fun TodoApp(viewModel: TodoViewModel) {
         .fillMaxSize()
         .padding(16.dp)) {
 
+        // 입력창과 버튼
         Row(verticalAlignment = Alignment.CenterVertically) {
             BasicTextField(
                 value = input,
@@ -191,6 +214,7 @@ fun TodoApp(viewModel: TodoViewModel) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // 할 일 목록 출력
         for (todo in viewModel.todoList) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -213,6 +237,7 @@ fun TodoApp(viewModel: TodoViewModel) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // 완료 항목 삭제 버튼
         Button(onClick = { viewModel.removeDone() }) {
             Text("완료 항목 모두 삭제")
         }
@@ -220,14 +245,34 @@ fun TodoApp(viewModel: TodoViewModel) {
 }
 ```
 
+### 🔍 설명:
+
+* `Column`, `Row`: Compose에서 UI를 배치하는 기본 컨테이너
+* `BasicTextField`: 사용자 입력을 받음
+* `Checkbox`: 할 일 완료 체크
+* `TextDecoration.LineThrough`: 완료된 항목은 줄긋기 표시
+* `remember`: 입력 상태를 저장하여 화면 갱신 시 유지
+
 ---
 
-## ▶️ 4. 실행
+## ▶️ 실행 방법
 
-1. USB 연결된 Android 기기 또는 Emulator 실행
-2. Android Studio 상단 ▶️ 버튼 클릭
+1. USB 연결된 Android 기기 or Emulator 실행
+2. Android Studio에서 상단 ▶️ 버튼 클릭
+3. 앱이 실행되면:
 
-## 📚 참고 자료
+   * 할 일을 입력하고 ‘추가’ 버튼 클릭
+   * 목록에서 항목 클릭 시 체크
+   * 하단 버튼으로 체크된 항목 모두 삭제
 
-* [Jetpack Compose 공식 문서](https://developer.android.com/jetpack/compose)
-* [ViewModel 공식 가이드](https://developer.android.com/topic/libraries/architecture/viewmodel)
+---
+
+## 📚 마무리 요약
+
+| 학습 내용      | 설명                                        |
+| ---------- | ----------------------------------------- |
+| Compose 구조 | Composable 함수로 UI 구성                      |
+| 상태 관리      | ViewModel + `mutableStateListOf`로 관리      |
+| 입력 처리      | `BasicTextField`, `remember` 사용           |
+| 화면 구성      | `Column`, `Row`, `Modifier` 활용            |
+| 사용자 상호작용   | `clickable`, `Checkbox`, `TextDecoration` |
