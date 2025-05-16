@@ -20,7 +20,7 @@ Jetpack Compose는 **상태(State)** 가 바뀌면 자동으로 UI를 다시 그
 
 | 항목 | LiveData | StateFlow |
 |------|----------|-----------|
-| 구형 방식 | ✅ (Compose 외에도 사용 가능) | ✅ (Compose에 최적화됨) |
+| 구현 방식 | ✅ (Compose 외에도 사용 가능) | ✅ (Compose에 최적화됨) |
 | Compose 지원 | 가능하지만 따로 옵저버 설정 필요 | `collectAsState()`로 바로 사용 가능 |
 | 수동 옵저버 필요 | `observe()` 필요 | 없음 (자동 구독) |
 | Null 허용 | 기본 null 허용 | 기본 non-null |
