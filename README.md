@@ -25,7 +25,10 @@ Jetpack Compose, Kotlin, MVVM, API 연동 등 실무에서 자주 쓰이는 기�
 - [To-Do 앱 만들기](05_sample_projects/todo_app/README.md)
 
 ### 6. 앱 구조화와 MVVM
+- [MVVM 패턴 소개](06_mvvm_architecture/mvvm_overview.md)
 - [ViewModel과 상태 관리](06_mvvm_architecture/viewmodel_state.md)
+- [Repository 패턴 기초](06_mvvm_architecture/repository_pattern.md)
+- [DI(Hilt/Dagger) 소개](06_mvvm_architecture/di_hilt_intro.md)
 
 ### 7. 네트워크 & API 연동
 - [Retrofit으로 API 호출하기](07_networking/retrofit_intro.md)
