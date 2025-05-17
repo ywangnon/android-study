@@ -31,7 +31,10 @@ Jetpack Compose, Kotlin, MVVM, API 연동 등 실무에서 자주 쓰이는 기�
 - [DI(Hilt/Dagger) 소개](06_mvvm_architecture/di_hilt_intro.md)
 
 ### 7. 네트워크 & API 연동
-- [Retrofit으로 API 호출하기](07_networking/retrofit_intro.md)
+- [네트워크 & API 연동](07_networking/networking_intro.md)
+- [Retrofit으로 API 호출하기](07_networking/retrofit_example.md)
+- [Gson과 Moshi로 JSON 파싱하기](07_networking/json_parsing.md)
+- [비동기 처리와 코루틴](07_networking/coroutines.md)
 
 ### 8. Jetpack 라이브러리
 - [Navigation, Room, DataStore](08_jetpack_libraries/overview.md)
