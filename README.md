@@ -37,7 +37,11 @@ Jetpack Compose, Kotlin, MVVM, API 연동 등 실무에서 자주 쓰이는 기�
 - [비동기 처리와 코루틴](07_networking/coroutines.md)
 
 ### 8. Jetpack 라이브러리
-- [Navigation, Room, DataStore](08_jetpack_libraries/overview.md)
+- [Jetpack 라이브러리 개요](08_jetpack_libraries/overview.md)
+- [Navigation 사용하기](08_jetpack_libraries/navigation_compose.md)
+- [Room 데이터베이스 기본 사용법](08_jetpack_libraries/room_database.md)
+- [DataStore 기본 사용법](08_jetpack_libraries/datastore.md)
+- [WorkManager 기본 사용법](08_jetpack_libraries/workmanager.md)
 
 ### 9. 테스팅과 디버깅
 - [Logcat, Unit Test, UI Test](09_testing_debugging/testing_basics.md)
