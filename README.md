@@ -44,7 +44,8 @@ Jetpack Compose, Kotlin, MVVM, API 연동 등 실무에서 자주 쓰이는 기�
 - [WorkManager 기본 사용법](08_jetpack_libraries/workmanager.md)
 
 ### 9. 테스팅과 디버깅
-- [Logcat, Unit Test, UI Test](09_testing_debugging/testing_basics.md)
+- [Android 테스팅과 디버깅 기초](09_testing_debugging/testing_basics.md)
+- [Compose UI 테스트 & ViewModel 테스트](09_testing_debugging/compose_and_viewmodel_test.md)
 
 ### 10. 배포와 빌드 관리
 - [Gradle, APK, Play Store 배포](10_build_release/build_basics.md)
