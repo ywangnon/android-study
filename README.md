@@ -8,8 +8,7 @@
 ## 📚 목차
 
 ### 1. Android 개발 개요
-- [Android란 무엇인가?](01_android_intro/android_overview.md)
-- [Android 개발 환경과 툴 소개](01_android_intro/dev_environment.md)
+- [Android란 무엇인가?](01_android_intro/what_is_android.md)
 
 ### 2. Kotlin 기초
 - [변수, 조건문, 함수, 클래스](02_kotlin_basics/kotlin_basics.md)
